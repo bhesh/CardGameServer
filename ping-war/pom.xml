@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.hession.server</groupId>
+		<artifactId>CardGames</artifactId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hession.cards.network</groupId>
+	<artifactId>ping-war</artifactId>
+	<packaging>war</packaging>
+	<version>${project.parent.version}</version>
+	<name>Ping War Files</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.hession.cards</groupId>
+			<artifactId>ping</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hession.cards</groupId>
+			<artifactId>engine</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.21</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wink</groupId>
+			<version>1.4</version>
+			<artifactId>wink-json4j</artifactId>
+		</dependency>
+	</dependencies>
+</project>

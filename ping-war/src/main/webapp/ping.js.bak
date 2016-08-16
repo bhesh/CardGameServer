@@ -1,0 +1,100 @@
+// Canvas
+var canvas = document.getElementById("gameboard");
+var context = canvas.getContext("2d");
+
+// Colors
+var canvasColor = "#ffffff";
+var menuColor = "#0099bb";
+var menuTextColor = "#ffffff";
+var menuTextFont = "20px monospace";
+var turnMarkerColor = "#660088";
+
+// Deck
+var deckSize = 53;
+var cardWidth = 72;
+var cardHeight = 96;
+var images = new Array();
+
+// Players
+function Player(name) {
+	this.name = name;
+	this.score = 0;
+}
+
+// Game state
+function Game() {
+	this.players = new Array();
+	this.turn = 0;
+	this.createPlayers = function(names) {
+		for (i in names) {
+			this.players[i] = new Player(names[i]);
+		}
+	};
+}
+var game = new Game();
+game.createPlayers(["mom", "dad", "kelly", "brian", "shawna"]);
+
+/**
+ * Loads the cards into the cache (I believe)
+ */
+function loadCards() {
+	images[0] = new Image();
+	images[0].src = "/classic-cards/b1fv.jpg";
+	console.log("loaded ".concat(images[0].src));
+	var i = 1;
+	for (i=1; i <=53; ++i) {
+		images[i] = new Image();
+		images[i].src = "/classic-cards/".concat(
+			i.toString().concat(".jpg")
+		);
+		console.log("loaded ".concat(images[i].src));
+	}
+}
+
+/**
+ * Draws the board
+ */
+function drawCanvas() {
+	context.fillStyle = canvasColor;
+	context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+/**
+ * Draws the menu
+ */
+function drawMenu() {
+	context.fillStyle = menuColor;
+	context.fillRect(0, 0, 200, canvas.height);
+
+	context.fillStyle = turnMarkerColor;
+	context.fillRect(0, game.turn * 30, 200, 30);
+
+	context.font = menuTextFont;
+	context.fillStyle = menuTextColor;
+	var x = 15;
+	var y = 22;
+	for (i in game.players) {
+		name = game.players[i].name.substring(0, 8);
+		context.fillText(name.concat(": ").concat(game.players[i].score.toString()), x, y);
+		y = y + 30;
+	}
+}
+
+/**
+ * Draws the game
+ */
+function drawGame() {
+}
+
+/**
+ * Initialize everything
+ */
+console.log("initializing");
+loadCards();
+console.log("drawing canvas");
+drawCanvas();
+console.log("drawing menu");
+drawMenu();
+console.log("drawing game");
+drawGame();
+
