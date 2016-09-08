@@ -11,3 +11,14 @@ My family rules deviate a little bit.
 ### Server
 
 The server uses a REST implementation.
+
+### Credits
+
+Source code written by Brian Hession
+
+Depends on the following libraries:
+
+* Glassfish Jersey REST
+* JAX-RS API
+* Apache Wink json4j
+* Apache logging log4j
